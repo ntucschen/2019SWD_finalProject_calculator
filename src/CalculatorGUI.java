@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 //import java.awt.BorderLayout;
 
 @SuppressWarnings("serial") // TODO: 這是什麼？ 或許可以用exception ??
-public class CalculatorGUI extends JFrame {
+public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constractor補齊
 
   private JFrame GUI; // TODO 變數都沒有設private/public
   
@@ -73,7 +73,7 @@ public class CalculatorGUI extends JFrame {
   private String displayA = "";
   private String output;
 
-  CalculatorGUI() { //TODO: 沒有設權限
+  public CalculatorGUI() { //TODO: 沒有設權限
 	  
     GUI = new JFrame("CalculatorGUI"); 
     JPanel panel = new JPanel(new FlowLayout()); 
@@ -530,7 +530,7 @@ public class CalculatorGUI extends JFrame {
   }
 	
   public static void main(String[] args) {  
-    new CalculatorGUI();
+    CalculatorGUI cal = new CalculatorGUI();
   }  
 
 }
