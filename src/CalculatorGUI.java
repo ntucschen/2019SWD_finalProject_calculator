@@ -5,6 +5,8 @@
 
 //TODO: 加exception
 // 分class
+// de coupling 拔掉任何一個案件 -> 會壞掉
+// 加減乘除順序問題 -> 先忽略？
 
 import javax.swing.*;
 import java.awt.FlowLayout;
@@ -85,7 +87,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     
     Enter = new JButton("Enter");
     Enter.setBounds(275,410,100, 40); //x axis, y axis, width, height  
-    Enter.addActionListener(new ActionListener() { 
+    Enter.addActionListener(new ActionListener() {  //監聽
         public void actionPerformed(ActionEvent e) {
           if (isInputB) {
             inputA = Double.parseDouble(displayA.substring(0,displayA.indexOf(" ")));
@@ -190,15 +192,24 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     
     // == numbers == //
     // 0 - 3 //
-    zero = new JButton("0");
-    zero.setBounds(100,410,45,40);
+    // zero = new JButton("0"); //TODO 要使用 abstractor/interface/constractor ?
+    // zero.setBounds(100,410,45,40);
+    // zero.addActionListener(new ActionListener() {
+    // 	public void actionPerformed(ActionEvent e) {
+    // 		displayA = displayA + "0";
+    // 		numDisplay.setText(displayA);
+    // 	}
+    // });
+    // GUI.add(zero);
+
+    zero = new NumberButton("0",100,410,45,40);
     zero.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "0";
-    		numDisplay.setText(displayA);
-    	}
+      public void actionPerformed(ActionEvent e) {
+        displayA = displayA + "0";
+        numDisplay.setText(displayA);
+      }
     });
-    GUI.add(zero);
+    GUI.add(zero);    
     
     one = new JButton("1");
     one.setBounds(100, 365, 45, 40);
