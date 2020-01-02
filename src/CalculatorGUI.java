@@ -3,74 +3,77 @@
 //GCI19 - Task: Java Calculator GUI - Carlo Dino
 //warning: spaghetti code alert - my first time running with JFrame for anything, honestly
 
+//TODO: 加exception
+// 分class
+
 import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 //import java.awt.BorderLayout;
 
-@SuppressWarnings("serial")
+@SuppressWarnings("serial") // TODO: 這是什麼？ 或許可以用exception ??
 public class CalculatorGUI extends JFrame {
 
-  JFrame GUI;
+  private JFrame GUI; // TODO 變數都沒有設private/public
   
-  JButton Enter;
-  JButton CLR;
-  JButton one;
-  JButton two;
-  JButton three;
-  JButton four;
-  JButton five;
-  JButton six;
-  JButton seven;
-  JButton eight;
-  JButton nine;
-  JButton zero;
-  JButton pi;
+  private JButton Enter;
+  private JButton CLR;
+  private JButton one;
+  private JButton two;
+  private JButton three;
+  private JButton four;
+  private JButton five;
+  private JButton six;
+  private JButton seven;
+  private JButton eight;
+  private JButton nine;
+  private JButton zero;
+  private JButton pi;
 
   //operations
 
-  JButton dot;
-  boolean dotExists = false;
-  JButton neg;
-  boolean negExists = false;
-  JButton square;
-  boolean isSquared = false;
-  JButton squareRoot;
-  boolean isRooted = false;
+  private JButton dot;
+  private boolean dotExists = false;
+  private JButton neg;
+  private boolean negExists = false;
+  private JButton square;
+  private boolean isSquared = false;
+  private JButton squareRoot;
+  private boolean isRooted = false;
   
-  JButton add;
-  boolean isAdding = false;
-  JButton subtract;
-  boolean isSubtracting = false;
-  JButton multiply;
-  boolean isMultiplying = false;
-  JButton divide;
-  boolean isDividing = false;
+  private JButton add;
+  private boolean isAdding = false;
+  private JButton subtract;
+  private boolean isSubtracting = false;
+  private JButton multiply;
+  private boolean isMultiplying = false;
+  private JButton divide;
+  private boolean isDividing = false;
   
-  JButton toFrac;
-  boolean isFrac = false;
-  JButton toLog10;
-  JButton toLogE;
-  boolean isLog = false;
+  private JButton toFrac;
+  private boolean isFrac = false;
+  private JButton toLog10;
+  private JButton toLogE;
+  private boolean isLog = false;
   
-  JButton sin;
-  JButton cos;
-  JButton tan;
-  JButton sec;
-  JButton csc;
-  JButton cot;
-  boolean trigExists = false;
+  private JButton sin;
+  private JButton cos;
+  private JButton tan;
+  private JButton sec;
+  private JButton csc;
+  private JButton cot;
+  private boolean trigExists = false;
   
-  JTextField numDisplay;
+  private JTextField numDisplay;
 
-  boolean isInputB = false;
-  double inputA;
-  double inputB;
-  String displayA = "";
-  String output;
+  private boolean isInputB = false;
+  private double inputA;
+  private double inputB;
+  private String displayA = "";
+  private String output;
 
-  CalculatorGUI() {
+  CalculatorGUI() { //TODO: 沒有設權限
 	  
     GUI = new JFrame("CalculatorGUI"); 
     JPanel panel = new JPanel(new FlowLayout()); 
@@ -122,7 +125,7 @@ public class CalculatorGUI extends JFrame {
         }
     	}
     });
-    GUI.add(add);
+    GUI.add(add); //TODO: 做許多次同樣的事， 有沒有辦法包成class
     
     subtract = new JButton("-");
     subtract.setBounds(275,320,100,40);
