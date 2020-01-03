@@ -30,7 +30,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   private JButton seven;
   private JButton eight;
   private JButton nine;
-  private JButton zero;
+  //private JButton zero;
   private JButton pi;
 
   //operations
@@ -192,23 +192,23 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     
     // == numbers == //
     // 0 - 3 //
-    // zero = new JButton("0"); //TODO 要使用 abstractor/interface/constractor ?
-    // zero.setBounds(100,410,45,40);
-    // zero.addActionListener(new ActionListener() {
-    // 	public void actionPerformed(ActionEvent e) {
-    // 		displayA = displayA + "0";
-    // 		numDisplay.setText(displayA);
-    // 	}
-    // });
-    // GUI.add(zero);
+    
+    /*
+    TODO 要使用 abstractor/interface/constractor ?
+    增加interface ?
+    */
+    
+    Zero zero = new Zero();
+//    zero.addActionListener(new ActionListener() { //增加exception來提醒是哪裡錯 少什麼？
+//      public void actionPerformed(ActionEvent e) {
+//        displayA = displayA + "0";
+//        numDisplay.setText(displayA);
+//      }
+//    });
+    
 
-    zero = new NumberButton("0",100,410,45,40);
-    zero.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        displayA = displayA + "0";
-        numDisplay.setText(displayA);
-      }
-    });
+    displayA = displayA + zero.getDisplayA(); //bug: 沒有listen 且變成直接run -> 所以無法將值傳出來
+    numDisplay.setText(displayA);
     GUI.add(zero);    
     
     one = new JButton("1");
