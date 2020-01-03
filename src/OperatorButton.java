@@ -12,6 +12,7 @@ public class OperatorButton extends JButton{
 		this.GUIstate = GUIstate;
 		super.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.printf(label);
 				// for CLR
 				if (label == "CLR") {
 					GUIstate.setdisplayA("");
@@ -52,7 +53,12 @@ public class OperatorButton extends JButton{
 				}
 
 				// for +, -, x, /
+				System.out.printf("label = " + label + "\n");
+				System.out.print(label == "*");
 				if (label == "+" || label == "-" || label == "x" || label == "/"){
+					System.out.printf("why not this line\n");
+					System.out.printf("label = " + label + " ");
+					System.out.print(GUIstate.getisInputB());
 			        if (!GUIstate.getisInputB()) {
 			        	GUIstate.adddisplayA(" " + label + " ");
 		        		switch(label) 
