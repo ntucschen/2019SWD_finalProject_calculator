@@ -31,8 +31,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   private JButton seven;
   private JButton eight;
   private JButton nine;
-  //private JButton zero;
-  private NumberButton zero;
+  private JButton zero;
   private JButton pi;
 
   //operations
@@ -47,13 +46,9 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   private boolean isRooted = false;
   
   private JButton add;
-  private boolean isAdding = false;
   private JButton subtract;
-  private boolean isSubtracting = false;
   private JButton multiply;
-  private boolean isMultiplying = false;
   private JButton divide;
-  private boolean isDividing = false;
   
   private JButton toFrac;
   private boolean isFrac = false;
@@ -89,118 +84,26 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     GUIstate = new GUIstate(numDisplay);
     GUI.add(numDisplay);
     
-    Enter = new JButton("Enter");
-    Enter.setBounds(275,410,100, 40); //x axis, y axis, width, height  
-    Enter.addActionListener(new ActionListener() {  //監聽
-        public void actionPerformed(ActionEvent e) {
-          if (isInputB) {
-            inputA = Double.parseDouble(displayA.substring(0,displayA.indexOf(" ")));
-            inputB = Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")+1));
-            if (isAdding) {
-              output = displayA + " = " + Double.toString(inputA + inputB);
-              numDisplay.setText(output);
-            }
-            if (isSubtracting) {
-              output = displayA + " = " + Double.toString(inputA - inputB);
-              numDisplay.setText(output);
-            }
-            if (isMultiplying) {
-              output = displayA + " = " + Double.toString(inputA * inputB);
-              numDisplay.setText(output);
-            }
-            if (isDividing) {
-              output = displayA + " = " + Double.toString(inputA / inputB);
-              numDisplay.setText(output);
-            }
-            System.out.println(output); //remove later
-          } 
-        }
-      }); 
+    Enter = new OperatorButton("Enter", GUIstate, 275, 410, 100, 40);
     GUI.add(Enter);
   
-    add = new JButton("+");
-    add.setBounds(275,365,100,40);
-    add.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-        if (!isInputB) {
-          displayA = displayA + " + ";
-    		  isAdding = true;
-          isInputB = true;
-          dotExists = false;
-          numDisplay.setText(displayA);
-        }
-    	}
-    });
-    GUI.add(add); //TODO: 做許多次同樣的事， 有沒有辦法包成class
+    add = new OperatorButton("+", GUIstate, 275, 365, 100, 40);
+    GUI.add(add);
     
-    subtract = new JButton("-");
-    subtract.setBounds(275,320,100,40);
-    subtract.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-        if (!isInputB) {
-          displayA = displayA + " - ";
-    		  isSubtracting = true;
-          isInputB = true;
-          dotExists = false;
-          numDisplay.setText(displayA);
-        }
-    	}
-    });
+    subtract = new OperatorButton("-", GUIstate, 275, 320, 100, 40);
     GUI.add(subtract);
-    
-    multiply = new JButton("x");
-    multiply.setBounds(275,275,100,40);
-    multiply.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-        if (!isInputB) {
-          displayA = displayA + " * ";
-    		  isMultiplying = true;
-          isInputB = true;
-          dotExists = false;
-          numDisplay.setText(displayA);
-        }
-    	}
-    });
+
+    multiply = new OperatorButton("*", GUIstate, 275, 275, 100, 40);
     GUI.add(multiply);
-    
-    divide = new JButton("/");
-    divide.setBounds(275,230,100,40);
-    divide.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-        if (!isInputB) {
-          displayA = displayA + " / ";
-    		  isDividing = true;
-          isInputB = true;
-          dotExists = false;
-          numDisplay.setText(displayA);
-        }
-    	}
-    });
+
+    divide = new OperatorButton("/", GUIstate, 275, 230, 100, 40);
     GUI.add(divide);
 
-    CLR = new JButton("CLR");
-    CLR.setBounds(275,185,100,40);
-    CLR.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        displayA = "";
-        isInputB = false;
-        isAdding = false;
-        isSubtracting = false;
-        isDividing = false;
-        isMultiplying = false;
-        dotExists = false;
-        numDisplay.setText(displayA);
-      }
-    });
+    CLR = new OperatorButton("CLR", GUIstate, 275, 185, 100, 40);
     GUI.add(CLR);
     
     // == numbers == //
     // 0 - 3 //
-    
-    /*
-    TODO 要使用 abstractor/interface/constractor ?
-    增加interface ?
-    */
     
     zero = new NumberButton("0", GUIstate, 100, 410, 45, 40);
     GUI.add(zero);    
