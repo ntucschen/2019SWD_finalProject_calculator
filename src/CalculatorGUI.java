@@ -276,88 +276,22 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
    });
    GUI.add(toLog10);
    
-   sin = new JButton("sin");
-   sin.setBounds(85, 185, 55, 40);
-   sin.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isInputB) {
-			   displayA = Double.toString(Math.sin(Double.parseDouble(displayA)));
-		   } else if (isInputB) {
-			   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(Math.sin(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
+   sin = new OperatorButton("sin", GUIstate, 85, 185, 55, 40);
    GUI.add(sin);
    
-   cos = new JButton("cos");
-   cos.setBounds(150, 185, 55, 40);
-   cos.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isInputB) {
-			   displayA = Double.toString(Math.cos(Double.parseDouble(displayA)));
-		   } else if (isInputB) {
-			   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(Math.cos(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
+   cos = new OperatorButton("cos", GUIstate, 150, 185, 55, 40);
    GUI.add(cos);
    
-   tan = new JButton("tan");
-   tan.setBounds(215, 185, 55, 40);
-   tan.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isInputB) {
-			   displayA = Double.toString(Math.tan(Double.parseDouble(displayA)));
-		   } else if (isInputB) {
-			   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(Math.tan(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
+   tan = new OperatorButton("tan", GUIstate, 215, 185, 55, 40);
    GUI.add(tan);
    
-   sec = new JButton("sec");
-   sec.setBounds(85, 230, 55, 40);
-   sec.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isInputB) {
-			   displayA = Double.toString(1/Math.cos(Double.parseDouble(displayA)));
-		   } else if (isInputB) {
-			   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(1/Math.cos(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
+   sec = new OperatorButton("sec", GUIstate, 85, 230, 55, 40);
    GUI.add(sec);
    
-   csc = new JButton("csc");
-   csc.setBounds(150, 230, 55, 40);
-   csc.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isInputB) {
-			   displayA = Double.toString(1/Math.sin(Double.parseDouble(displayA)));
-		   } else if (isInputB) {
-			   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(1/Math.sin(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
+   csc = new OperatorButton("csc", GUIstate, 150, 230, 55, 40);
    GUI.add(csc);
    
-   cot = new JButton("cot");
-   cot.setBounds(215, 230, 55, 40);
-   cot.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isInputB) {
-			   displayA = Double.toString(1/Math.tan(Double.parseDouble(displayA)));
-		   } else if (isInputB) {
-			   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(1/Math.tan(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
+   cot = new OperatorButton("cot", GUIstate, 215, 230, 55, 40);
    GUI.add(cot);
     
     JTextField name = new JTextField();
