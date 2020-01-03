@@ -202,9 +202,8 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     // });
     // GUI.add(zero);
 
-//    zero = new NumberButton("0",100,410,45,40); // 把後面的 int 改成一個叫setBounds的array可能會更清楚
-    zero = new Zero();
-    zero.addActionListener(new ActionListener() { //增加exception來提醒是哪裡錯 少什麼？
+    zero = new NumberButton("0",100,410,45,40);
+    zero.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         displayA = displayA + "0";
         numDisplay.setText(displayA);
