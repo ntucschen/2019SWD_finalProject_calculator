@@ -5,16 +5,19 @@ import java.awt.event.ActionListener;
 public abstract class NumberButton extends JButton{
 	
 	protected String displayA;
-	protected NumberButton(String label) {
+	protected GUIstate GUIstate;
+	protected NumberButton(String label, GUIstate GUIstate) {
 		super(label);
+		this.GUIstate = GUIstate;
 		super.addActionListener(new ActionListener() { //增加exception來提醒是哪裡錯 少什麼？
-		      public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
 		        displayA = label;
-		        System.out.printf(displayA);
+		        GUIstate.addDisplayA(label);
+		        System.out.printf(GUIstate.getDisplayA());
 //		        numDisplay.setText(displayA);
 		      }
 		    });
-		displayA = "" ;
+		// displayA = "" ;
 	}
 	
 	protected void setBtnPosition(int x, int y ,int w, int h) {

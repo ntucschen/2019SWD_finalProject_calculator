@@ -18,6 +18,7 @@ import java.awt.event.ActionListener;
 public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constractor補齊
 
   private JFrame GUI; // TODO 變數都沒有設private/public
+  private GUIstate GUIstate;
   
   private JButton Enter;
   private JButton CLR;
@@ -83,6 +84,8 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     numDisplay.setBounds(40, 25, 300, 75);
     numDisplay.setHorizontalAlignment(SwingConstants.RIGHT);
     numDisplay.setEditable(false);
+    
+    GUIstate = new GUIstate(numDisplay);
     GUI.add(numDisplay);
     
     Enter = new JButton("Enter");
@@ -198,7 +201,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     增加interface ?
     */
     
-    Zero zero = new Zero();
+    Zero zero = new Zero(GUIstate);
 //    zero.addActionListener(new ActionListener() { //增加exception來提醒是哪裡錯 少什麼？
 //      public void actionPerformed(ActionEvent e) {
 //        displayA = displayA + "0";
