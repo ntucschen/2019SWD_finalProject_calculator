@@ -32,6 +32,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   private JButton eight;
   private JButton nine;
   //private JButton zero;
+  private NumberButton zero;
   private JButton pi;
 
   //operations
@@ -201,111 +202,38 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     增加interface ?
     */
     
-    Zero zero = new Zero(GUIstate);
-//    zero.addActionListener(new ActionListener() { //增加exception來提醒是哪裡錯 少什麼？
-//      public void actionPerformed(ActionEvent e) {
-//        displayA = displayA + "0";
-//        numDisplay.setText(displayA);
-//      }
-//    });
-    
-
-    displayA = displayA + zero.getDisplayA(); //bug: 沒有listen 且變成直接run -> 所以無法將值傳出來
-    numDisplay.setText(displayA);
+    zero = new NumberButton("0", GUIstate, 100, 410, 45, 40);
     GUI.add(zero);    
     
-    one = new JButton("1");
-    one.setBounds(100, 365, 45, 40);
-    one.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "1";
-    		numDisplay.setText(displayA);
-    	}
-    });
+    one = new NumberButton("1", GUIstate, 100, 365, 45, 40);
     GUI.add(one);
     
-    two = new JButton("2");
-    two.setBounds(150, 365, 45, 40);
-    two.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "2";
-    		numDisplay.setText(displayA);
-    	}
-    });
+    two = new NumberButton("2", GUIstate, 150, 365, 45, 40);
     GUI.add(two);
-    
-    three = new JButton("3");
-    three.setBounds(200, 365, 45, 40);
-    three.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "3";
-    		numDisplay.setText(displayA);
-    	}
-    });
+
+    three = new NumberButton("3", GUIstate, 200, 365, 45, 40);
     GUI.add(three);
     
     // 4 - 6 //
-    
-    four = new JButton("4");
-    four.setBounds(100, 320, 45, 40);
-    four.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "4";
-    		numDisplay.setText(displayA);
-    	}
-    });
+
+    four = new NumberButton("4", GUIstate, 100, 320, 45, 40);
     GUI.add(four);
-    
-    five = new JButton("5");
-    five.setBounds(150, 320, 45, 40);
-    five.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "5";
-    		numDisplay.setText(displayA);
-    	}
-    });
+
+    five = new NumberButton("5", GUIstate, 150, 320, 45, 40);
     GUI.add(five);
     
-    six = new JButton("6");
-    six.setBounds(200, 320, 45, 40);
-    six.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "6";
-    		numDisplay.setText(displayA);
-    	}
-    });
+    six = new NumberButton("6", GUIstate, 200, 320, 45, 40);
     GUI.add(six);
     
     // 7 - 9 //
-    
-    seven = new JButton("7");
-    seven.setBounds(100, 275, 45, 40);
-    seven.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "7";
-    		numDisplay.setText(displayA);
-    	}
-    });
+
+    seven = new NumberButton("7", GUIstate, 100, 275, 45, 40);
     GUI.add(seven);
     
-    eight = new JButton("8");
-    eight.setBounds(150, 275, 45, 40);
-    eight.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "8";
-    		numDisplay.setText(displayA);
-    	}
-    });
+    eight = new NumberButton("8", GUIstate, 150, 275, 45, 40);
     GUI.add(eight);
     
-    nine = new JButton("9");
-    nine.setBounds(200, 275, 45, 40);
-    nine.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		displayA = displayA + "9";
-    		numDisplay.setText(displayA);
-    	}
-    });
+    nine = new NumberButton("9", GUIstate, 200, 275, 45, 40);
     GUI.add(nine);
     
     pi = new JButton("pi");
