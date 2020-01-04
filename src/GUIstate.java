@@ -29,6 +29,25 @@ public class GUIstate {
 		output = "";
 	}
 	
+	public void setop(String label) {
+		switch (label) {
+			case "+":
+				isAdding = true;
+				break;
+			case "-":
+				isSubtracting = true;
+				break;
+			case "x":
+				isMultiplying = true;
+				break;
+			case "/":
+				isDividing = true;
+				break;
+			default:
+				// do nothing
+		}
+	}
+	
 	public void display() {
 		numDisplay.setText(displayA);
 	}

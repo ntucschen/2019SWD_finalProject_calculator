@@ -71,22 +71,22 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     GUIstate = new GUIstate(numDisplay);
     GUI.add(numDisplay);
     
-    Enter = new OperatorButton("Enter", GUIstate, 275, 410, 100, 40);
+    Enter = new EnterOpButton("Enter", GUIstate, 275, 410, 100, 40);
     GUI.add(Enter);
   
-    add = new OperatorButton("+", GUIstate, 275, 365, 100, 40);
+    add = new OpButton("+", GUIstate, 275, 365, 100, 40);
     GUI.add(add);
     
-    subtract = new OperatorButton("-", GUIstate, 275, 320, 100, 40);
+    subtract = new OpButton("-", GUIstate, 275, 320, 100, 40);
     GUI.add(subtract);
 
-    multiply = new OperatorButton("x", GUIstate, 275, 275, 100, 40);
+    multiply = new OpButton("x", GUIstate, 275, 275, 100, 40);
     GUI.add(multiply);
 
-    divide = new OperatorButton("/", GUIstate, 275, 230, 100, 40);
+    divide = new OpButton("/", GUIstate, 275, 230, 100, 40);
     GUI.add(divide);
 
-    CLR = new OperatorButton("CLR", GUIstate, 275, 185, 100, 40);
+    CLR = new CLROpButton("CLR", GUIstate, 275, 185, 100, 40);
     GUI.add(CLR);
     
     // == numbers == //
@@ -129,46 +129,46 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
 
     // operations //
 
-    pi = new OperatorButton("pi", GUIstate, 25, 320, 55, 40);
+    pi = new PIButton("pi", GUIstate, 25, 320, 55, 40);
     GUI.add(pi);
 
-    dot = new OperatorButton(".", GUIstate, 150, 410, 45, 40);
+    dot = new DotButton(".", GUIstate, 150, 410, 45, 40);
     GUI.add(dot);
 
-    neg = new OperatorButton("N", GUIstate, 200, 410, 45, 40);
+    neg = new NegButton("N", GUIstate, 200, 410, 45, 40);
     GUI.add(neg);
 
-    square = new OperatorButton("^2", GUIstate, 25, 410, 55, 40);
+    square = new OtherOpButton("^2", GUIstate, 25, 410, 55, 40, x -> x * x);
     GUI.add(square);
     
-    squareRoot = new OperatorButton("sqt", GUIstate, 25, 365, 55, 40);
+    squareRoot = new OtherOpButton("sqt", GUIstate, 25, 365, 55, 40, x -> Math.sqrt(x));
     GUI.add(squareRoot);
     
-    toFrac = new OperatorButton("1/x", GUIstate, 25, 275, 55, 40);
+    toFrac = new OtherOpButton("1/x", GUIstate, 25, 275, 55, 40, x -> 1 / x);
     GUI.add(toFrac);
 
-    toLogE = new OperatorButton("ln", GUIstate, 25, 230, 55, 40);
+    toLogE = new OtherOpButton("ln", GUIstate, 25, 230, 55, 40, x -> Math.log(x));
     GUI.add(toLogE); 
 
-    toLog10 = new OperatorButton("log", GUIstate, 25, 185, 55, 40);
+    toLog10 = new OtherOpButton("log", GUIstate, 25, 185, 55, 40, x -> Math.log10(x));
     GUI.add(toLog10);
 
-    sin = new OperatorButton("sin", GUIstate, 85, 185, 55, 40);
+    sin = new OtherOpButton("sin", GUIstate, 85, 185, 55, 40, x -> Math.sin(x));
     GUI.add(sin);
 
-    cos = new OperatorButton("cos", GUIstate, 150, 185, 55, 40);
+    cos = new OtherOpButton("cos", GUIstate, 150, 185, 55, 40, x -> Math.cos(x));
     GUI.add(cos);
 
-    tan = new OperatorButton("tan", GUIstate, 215, 185, 55, 40);
+    tan = new OtherOpButton("tan", GUIstate, 215, 185, 55, 40, x -> Math.tan(x));
     GUI.add(tan);
 
-    sec = new OperatorButton("sec", GUIstate, 85, 230, 55, 40);
+    sec = new OtherOpButton("sec", GUIstate, 85, 230, 55, 40, x -> 1/Math.cos(x));
     GUI.add(sec);
 
-    csc = new OperatorButton("csc", GUIstate, 150, 230, 55, 40);
+    csc = new OtherOpButton("csc", GUIstate, 150, 230, 55, 40, x -> 1/Math.sin(x));
     GUI.add(csc);
 
-    cot = new OperatorButton("cot", GUIstate, 215, 230, 55, 40);
+    cot = new OtherOpButton("cot", GUIstate, 215, 230, 55, 40, x -> 1/Math.tan(x));
     GUI.add(cot);
     
     JTextField name = new JTextField();
