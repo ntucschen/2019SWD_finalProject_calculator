@@ -22,16 +22,11 @@ public class GUIstate {
 
 		dotExists = false;
 		negExists = false;
-		isSquared = false;
-		isRooted = false;
 	  
 		isAdding = false;
 		isSubtracting = false;
 		isMultiplying = false;
 		isDividing = false;
-	  
-		isFrac = false;
-		isLog = false;
 
 		isInputB = false;
 		inputA = 0.0;
@@ -109,24 +104,7 @@ public class GUIstate {
 	
 	public void setnegExists(Boolean val) {
 		negExists = val;
-	}
-	
-	public Boolean getisSquared() {
-		return isSquared;
-	}
-	
-	public void setisSquared(Boolean val) {
-		isSquared = val;
-	}
-	
-	public Boolean getisRooted() {
-		return isRooted;
-	}
-	
-	public void setisRooted(Boolean val) {
-		isRooted = val;
-	}
-	  
+	} 
 	
 	public Boolean getisAdding() {
 		return isAdding;
@@ -158,22 +136,5 @@ public class GUIstate {
 	
 	public void setisDividing(Boolean val) {
 		isDividing = val;
-	}
-	  
-	
-	public Boolean getisFrac() {
-		return isFrac;
-	}
-	
-	public void setisFrac(Boolean val) {
-		isFrac = val;
-	}
-	
-	public Boolean getisLog() {
-		return isLog;
-	}
-	
-	public void setisLog(Boolean val) {
-		isLog = val;
 	}
 }
