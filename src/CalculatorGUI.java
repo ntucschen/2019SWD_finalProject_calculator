@@ -41,9 +41,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   private JButton neg;
   private boolean negExists = false;
   private JButton square;
-  private boolean isSquared = false;
   private JButton squareRoot;
-  private boolean isRooted = false;
   
   private JButton add;
   private JButton subtract;
@@ -51,10 +49,8 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   private JButton divide;
   
   private JButton toFrac;
-  private boolean isFrac = false;
   private JButton toLog10;
   private JButton toLogE;
-  private boolean isLog = false;
   
   private JButton sin;
   private JButton cos;
@@ -93,7 +89,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     subtract = new OperatorButton("-", GUIstate, 275, 320, 100, 40);
     GUI.add(subtract);
 
-    multiply = new OperatorButton("*", GUIstate, 275, 275, 100, 40);
+    multiply = new OperatorButton("x", GUIstate, 275, 275, 100, 40);
     GUI.add(multiply);
 
     divide = new OperatorButton("/", GUIstate, 275, 230, 100, 40);
@@ -155,144 +151,44 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
 
     // operations //
 
-    dot = new JButton(".");
-    dot.setBounds(150, 410, 45, 40);
-    dot.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (!dotExists) {
-          displayA = displayA + ".";
-          numDisplay.setText(displayA);
-        }
-      }
-    });
+    dot = new OperatorButton(".", GUIstate, 150, 410, 45, 40);
     GUI.add(dot);
 
-    neg = new JButton("N");
-    neg.setBounds(200, 410, 45, 40);
-    neg.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        if (!negExists) {
-          if (!isInputB) {
-            displayA = "-" + displayA;
-          } else if (isInputB) {
-            displayA = displayA.substring(0, displayA.lastIndexOf(" ")) + " -" + displayA.substring(displayA.lastIndexOf(" ")+1);
-          }
-        }
-        numDisplay.setText(displayA);
-      }
-    });
+    neg = new OperatorButton("N", GUIstate, 200, 410, 45, 40);
     GUI.add(neg);
 
-    square = new JButton("^2");
-    square.setBounds(25, 410, 55, 40);
-    square.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent e) {
-        double squareThis;
-        if (!isSquared) {
-          if (!isInputB) {
-            squareThis = Double.parseDouble(displayA);
-            squareThis = Math.pow(squareThis, 2);
-            displayA =  Double.toString(squareThis);
-          } else if (isInputB) {
-            squareThis = Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")));
-            squareThis = Math.pow(squareThis, 2);
-            displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(squareThis);
-          }
-        }
-        numDisplay.setText(displayA);
-      }
-    });
+    square = new OperatorButton("^2", GUIstate, 25, 410, 55, 40);
     GUI.add(square);
     
-    squareRoot = new JButton("sqt");
-    squareRoot.setBounds(25, 365, 55, 40);
-    squareRoot.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		double squareRootThis;
-    		if (!isRooted) {
-    			if (!isInputB) {
-    				squareRootThis = Double.parseDouble(displayA);
-    				squareRootThis = Math.sqrt(squareRootThis);
-    				displayA = Double.toString(squareRootThis);
-    			} else if (isInputB) {
-    				squareRootThis = Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")));
-    				squareRootThis = Math.sqrt(squareRootThis);
-    				displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(squareRootThis);
-    			}
-    		}
-    		numDisplay.setText(displayA);
-    	}
-    });
+    squareRoot = new OperatorButton("sqt", GUIstate, 25, 365, 55, 40);
     GUI.add(squareRoot);
     
-   toFrac = new JButton("1/x");
-   toFrac.setBounds(25, 275, 55, 40);
-   toFrac.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   double fracThis;
-		   if (!isFrac) {
-			   if (!isInputB) {
-				  fracThis = Double.parseDouble(displayA);
-				  fracThis = (1/fracThis);
-				  displayA = Double.toString(fracThis);
-			   } else if (isInputB) {
-				   fracThis = Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")+1));
-				   fracThis = (1/fracThis);
-				   displayA = displayA.substring(0, displayA.lastIndexOf(" ")) + Double.toString(fracThis);
-			   }
-		   }
-		   numDisplay.setText(displayA);
-	   } 
-   });
-   GUI.add(toFrac);
-   
-   toLogE = new JButton("ln");
-   toLogE.setBounds(25, 230, 55, 40);
-   toLogE.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isLog) {
-			   if (!isInputB) {
-				   displayA = Double.toString(Math.log(Double.parseDouble(displayA)));
-			   } else if (isInputB) {
-				   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(Math.log(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-			   }
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
-   GUI.add(toLogE); 
-   
-   toLog10 = new JButton("log");
-   toLog10.setBounds(25, 185, 55, 40);
-   toLog10.addActionListener(new ActionListener() {
-	   public void actionPerformed(ActionEvent e) {
-		   if (!isInputB) {
-			   displayA = Double.toString(Math.log10(Double.parseDouble(displayA)));
-		   } else if (isInputB) {
-			   displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(Math.log10(Double.parseDouble(displayA.substring(displayA.lastIndexOf(" ")))));
-		   }
-		   numDisplay.setText(displayA);
-	   }
-   });
-   GUI.add(toLog10);
-   
-   sin = new OperatorButton("sin", GUIstate, 85, 185, 55, 40);
-   GUI.add(sin);
-   
-   cos = new OperatorButton("cos", GUIstate, 150, 185, 55, 40);
-   GUI.add(cos);
-   
-   tan = new OperatorButton("tan", GUIstate, 215, 185, 55, 40);
-   GUI.add(tan);
-   
-   sec = new OperatorButton("sec", GUIstate, 85, 230, 55, 40);
-   GUI.add(sec);
-   
-   csc = new OperatorButton("csc", GUIstate, 150, 230, 55, 40);
-   GUI.add(csc);
-   
-   cot = new OperatorButton("cot", GUIstate, 215, 230, 55, 40);
-   GUI.add(cot);
+    toFrac = new OperatorButton("1/x", GUIstate, 25, 275, 55, 40);
+    GUI.add(toFrac);
+
+    toLogE = new OperatorButton("ln", GUIstate, 25, 230, 55, 40);
+    GUI.add(toLogE); 
+
+    toLog10 = new OperatorButton("log", GUIstate, 25, 185, 55, 40);
+    GUI.add(toLog10);
+
+    sin = new OperatorButton("sin", GUIstate, 85, 185, 55, 40);
+    GUI.add(sin);
+
+    cos = new OperatorButton("cos", GUIstate, 150, 185, 55, 40);
+    GUI.add(cos);
+
+    tan = new OperatorButton("tan", GUIstate, 215, 185, 55, 40);
+    GUI.add(tan);
+
+    sec = new OperatorButton("sec", GUIstate, 85, 230, 55, 40);
+    GUI.add(sec);
+
+    csc = new OperatorButton("csc", GUIstate, 150, 230, 55, 40);
+    GUI.add(csc);
+
+    cot = new OperatorButton("cot", GUIstate, 215, 230, 55, 40);
+    GUI.add(cot);
     
     JTextField name = new JTextField();
     name.setBounds(40, 110, 300, 25);

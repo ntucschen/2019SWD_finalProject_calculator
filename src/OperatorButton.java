@@ -12,7 +12,7 @@ public class OperatorButton extends JButton{
 		this.GUIstate = GUIstate;
 		super.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.printf(label);
+				System.out.printf("label = " + label + "\n");
 				// for CLR
 				if (label == "CLR") {
 					GUIstate.setdisplayA("");
@@ -52,13 +52,42 @@ public class OperatorButton extends JButton{
 					return;
 				}
 
+				// ., N
+				if (label == "." || label == "N") {
+					String str = GUIstate.getdisplayA();
+					String prev = "";
+					String inputB;
+					if (GUIstate.getisInputB()) {
+						prev = str.substring(0, str.lastIndexOf(" ")+1);
+						inputB = str.substring(str.lastIndexOf(" ")+1);
+					} else {
+						inputB = str;
+					}
+					switch(label)
+					{
+						case ".":
+							if (inputB.indexOf(".") == -1) {
+								inputB = inputB + ".";
+							}
+							break;
+						case "N":
+							int index = inputB.indexOf("-");
+							System.out.printf("index = " + index + "\n");
+							if (index == -1) {
+								inputB = "-" + inputB;
+							} else if (index == 0) {
+								inputB = inputB.substring(index+1);
+							}
+							break;
+						default:
+							// do nothing
+					}
+					
+					GUIstate.setdisplayA(prev + inputB);
+				}
+
 				// for +, -, x, /
-				System.out.printf("label = " + label + "\n");
-				System.out.print(label == "*");
 				if (label == "+" || label == "-" || label == "x" || label == "/"){
-					System.out.printf("why not this line\n");
-					System.out.printf("label = " + label + " ");
-					System.out.print(GUIstate.getisInputB());
 			        if (!GUIstate.getisInputB()) {
 			        	GUIstate.adddisplayA(" " + label + " ");
 		        		switch(label) 
@@ -69,7 +98,7 @@ public class OperatorButton extends JButton{
 		                    case "-": 
 		                    	GUIstate.setisSubtracting(true);
 		                        break; 
-		                    case "*": 
+		                    case "x": 
 		                    	GUIstate.setisMultiplying(true);
 		                        break; 
 		                    case "/": 
@@ -84,8 +113,11 @@ public class OperatorButton extends JButton{
 			    }
 
 			    // for sin, cos, tan, sec, csc, cot
+			    // for log, ln, sqt, 1/x, ^2
 			    if (label == "sin" || label == "cos" || label == "tan" ||
-			    	label == "sec" || label == "csc" || label == "cot"){
+			    	label == "sec" || label == "csc" || label == "cot" ||
+			    	label == "log" || label == "ln"  || label == "sqt" ||
+			    	label == "1/x" || label == "^2" ){
 			    	String str = GUIstate.getdisplayA();
 			    	String prestr = "";
 			    	String value = "";
@@ -116,8 +148,23 @@ public class OperatorButton extends JButton{
 	                    case "cot":
 	                    	result = 1/Math.tan(inputB);
 	                    	break;
-	                    default: 
-	                        System.out.println("no match"); 
+	                    case "log":
+	                    	result = Math.log10(inputB);
+	                    	break;
+	                    case "ln":
+	                    	result = Math.log(inputB);
+	                    	break;
+	                    case "sqt":
+	                    	result = Math.sqrt(inputB);
+	                    	break;
+	                    case "1/x":
+	                    	result = 1/inputB;
+	                    	break;
+	                    case "^2":
+	                    	result = Math.pow(inputB, 2);
+	                    	break;
+	                    default:
+	                        System.out.println("no match\n"); 
 						
 					}
 					GUIstate.setdisplayA(prestr + Double.toString(result));

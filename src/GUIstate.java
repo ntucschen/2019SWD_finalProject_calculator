@@ -2,9 +2,6 @@ import javax.swing.JTextField;
 
 public class GUIstate {
 	protected JTextField numDisplay;
-	
-	protected boolean dotExists;
-	protected boolean negExists;
 	  
 	protected boolean isAdding;
 	protected boolean isSubtracting;
@@ -19,9 +16,6 @@ public class GUIstate {
 	
 	protected GUIstate(JTextField numDisplay){
 		this.numDisplay = numDisplay;
-
-		dotExists = false;
-		negExists = false;
 	  
 		isAdding = false;
 		isSubtracting = false;
@@ -90,22 +84,6 @@ public class GUIstate {
 		inputB = val;
 	}	
 
-	public Boolean getdotExists() {
-		return dotExists;
-	}
-	
-	public void setdotExists(Boolean val) {
-		dotExists = val;
-	}
-	
-	public Boolean getnegExists() {
-		return negExists;
-	}
-	
-	public void setnegExists(Boolean val) {
-		negExists = val;
-	} 
-	
 	public Boolean getisAdding() {
 		return isAdding;
 	}

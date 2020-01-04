@@ -13,7 +13,7 @@ public class NumberButton extends JButton{
 		super.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 		        GUIstate.adddisplayA(label);
-		        System.out.printf(GUIstate.getdisplayA());
+		        System.out.printf(GUIstate.getdisplayA() + "\n");
 		      }
 		    });
 	}
