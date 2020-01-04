@@ -5,17 +5,12 @@ public class GUIstate {
 	
 	protected boolean dotExists;
 	protected boolean negExists;
-	protected boolean isSquared;
-	protected boolean isRooted;
 	  
 	protected boolean isAdding;
 	protected boolean isSubtracting;
 	protected boolean isMultiplying;
 	protected boolean isDividing;
-	  
-	protected boolean isFrac;
-	protected boolean isLog;
-
+	
 	protected boolean isInputB;
 	protected double inputA;
 	protected double inputB;
