@@ -37,9 +37,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   //operations
 
   private JButton dot;
-  private boolean dotExists = false;
   private JButton neg;
-  private boolean negExists = false;
   private JButton square;
   private JButton squareRoot;
   
@@ -58,15 +56,8 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
   private JButton sec;
   private JButton csc;
   private JButton cot;
-  private boolean trigExists = false;
   
   private JTextField numDisplay;
-
-  private boolean isInputB = false;
-  private double inputA;
-  private double inputB;
-  private String displayA = "";
-  private String output;
 
   public CalculatorGUI() { //TODO: 沒有設權限
 	  
@@ -137,7 +128,7 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     
 
     // operations //
-    
+
     pi = new OperatorButton("pi", GUIstate, 25, 320, 55, 40);
     GUI.add(pi);
 
