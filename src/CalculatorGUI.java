@@ -135,21 +135,11 @@ public class CalculatorGUI extends JFrame { // constructor -> TODO: 把constract
     nine = new NumberButton("9", GUIstate, 200, 275, 45, 40);
     GUI.add(nine);
     
-    pi = new JButton("pi");
-    pi.setBounds(25, 320, 55, 40);
-    pi.addActionListener(new ActionListener() {
-    	public void actionPerformed(ActionEvent e) {
-    		if (!isInputB) {
-    			displayA = Double.toString(Math.PI);
-    		} else if (isInputB) {
-    			displayA = displayA.substring(0, displayA.lastIndexOf(" ")+1) + Double.toString(Math.PI);
-    		}
-    		numDisplay.setText(displayA);
-    	}
-    });
-    GUI.add(pi);
 
     // operations //
+    
+    pi = new OperatorButton("pi", GUIstate, 25, 320, 55, 40);
+    GUI.add(pi);
 
     dot = new OperatorButton(".", GUIstate, 150, 410, 45, 40);
     GUI.add(dot);

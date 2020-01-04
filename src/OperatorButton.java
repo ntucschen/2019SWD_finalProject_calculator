@@ -21,7 +21,6 @@ public class OperatorButton extends JButton{
 			        GUIstate.setisSubtracting(false);
 			        GUIstate.setisDividing(false);
 			        GUIstate.setisMultiplying(false);
-			        GUIstate.setdotExists(false);
 			        return;
 				}
 
@@ -52,8 +51,8 @@ public class OperatorButton extends JButton{
 					return;
 				}
 
-				// ., N
-				if (label == "." || label == "N") {
+				// ., N, pi
+				if (label == "." || label == "N" || label == "pi") {
 					String str = GUIstate.getdisplayA();
 					String prev = "";
 					String inputB;
@@ -72,13 +71,15 @@ public class OperatorButton extends JButton{
 							break;
 						case "N":
 							int index = inputB.indexOf("-");
-							System.out.printf("index = " + index + "\n");
 							if (index == -1) {
 								inputB = "-" + inputB;
 							} else if (index == 0) {
 								inputB = inputB.substring(index+1);
 							}
 							break;
+						case "pi":
+							inputB = Double.toString(Math.PI);
+
 						default:
 							// do nothing
 					}
@@ -108,7 +109,6 @@ public class OperatorButton extends JButton{
 		                        System.out.println("no match"); 
 		                } 
 			        	GUIstate.setisInputB(true);
-			        	GUIstate.setdotExists(false);
 			        }
 			    }
 
